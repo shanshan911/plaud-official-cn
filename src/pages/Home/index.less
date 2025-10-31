@@ -1,0 +1,58 @@
+.home {
+    background: #111217;
+
+    .main-img {
+        width: 100%;
+        display: block;
+    }
+
+    // 底部横幅
+    .footer-banner {
+        background: #000000;
+        color: #ffffff;
+        padding: 20px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 14px;
+        line-height: 30px;
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &-left {
+            text-align: left;
+        }
+
+        &-right {
+            text-align: right;
+        }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .footer-banner {
+            flex-direction: column;
+            padding: 40px 20px;
+            font-size: 16px;
+            line-height: 24px;
+            gap: 30px;
+            align-items: center;
+
+            &-left,
+            &-right {
+                text-align: center;
+            }
+        }
+    }
+}
