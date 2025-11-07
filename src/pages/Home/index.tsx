@@ -174,7 +174,7 @@ const Home = () => {
             {/* 第四块：Plaud 产品系列 */}
             <div className="section-products">
                 <div className="section-container">
-                    <h2 className="section-title-center">Plaud 硬件产品系列<br />由Plaud Intelligence™ 驱动</h2>
+                    <h2 className="section-title-center"><span style={{ fontFamily: 'Jokker' }}>Plaud</span> 硬件产品系列<br />由 <span style={{ fontFamily: 'Jokker' }}>Plaud Intelligence™</span> 驱动</h2>
 
 
                     <div className="product-cards">
@@ -189,7 +189,7 @@ const Home = () => {
             {/* 第五块：Plaud Intelligence™ */}
             <div className="section-plaud-intelligence">
                 <div className="section-container">
-                    <h2 className="section-title-center">Plaud Intelligence™</h2>
+                    <h2 className="section-title-center" style={{ fontFamily: 'Jokker' }}>Plaud Intelligence™</h2>
                     <div className="product-cards">
                         <img src={plaudIntelligence1} alt="多模态输入" />
                         <img src={plaudIntelligence2} alt="精准转写" />

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Jokker';
+    src:          
+         url('@/assets/fonts/Jokker-Regular.otf') ;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     margin: 0;   
     font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
