@@ -20,7 +20,7 @@ const ProductIntroduction = () => {
             <p>
                 <span className="mention-link_https%3A%2F%2Fnicebuild.feishu.cn%2Fwiki%2FObURwu4f6ixAApkbGbKc8mmpnRd mention-token_ObURwu4f6ixAApkbGbKc8mmpnRd mention-type_16 mention-uuid_rLkkKLyD4pei-1 mention-custom-icon-info_%7B%22type%22%3A0%2C%22key%22%3A%22%22%2C%22obj_type%22%3A22%2C%22file_type%22%3Anull%2C%22token%22%3A%22CrZ8dKZ76obO2ZxGC0XcUwWnnCe%22%2C%22version%22%3A85%7D"></span>
             </p>
-            <p>注意：请在激活设备之前更新固件。</p>
+            <p>注意：请在绑定设备后，在设备连接时升级固件</p>
 
             <h2 className="heading-2 ace-line old-record-id-doxcnGSWeowzk87zw4mdGm2Ahrh">
                 开机 （gif）
