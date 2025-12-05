@@ -16,99 +16,111 @@ import ota from '@/assets/images/product-introduction/ota.webp';
 const ProductIntroduction = () => {
     return (
         <div className="product-introduction">
-            <h1>屏幕UI说明</h1>
+            <h1 className="text-center">Plaud Note Pro-屏幕实时显示指引</h1>
             <p>
                 <span className="mention-link_https%3A%2F%2Fnicebuild.feishu.cn%2Fwiki%2FObURwu4f6ixAApkbGbKc8mmpnRd mention-token_ObURwu4f6ixAApkbGbKc8mmpnRd mention-type_16 mention-uuid_rLkkKLyD4pei-1 mention-custom-icon-info_%7B%22type%22%3A0%2C%22key%22%3A%22%22%2C%22obj_type%22%3A22%2C%22file_type%22%3Anull%2C%22token%22%3A%22CrZ8dKZ76obO2ZxGC0XcUwWnnCe%22%2C%22version%22%3A85%7D"></span>
             </p>
-            <p>注意：请在绑定设备后，在设备连接时升级固件</p>
-
-            <h2 className="heading-2 ace-line old-record-id-doxcnGSWeowzk87zw4mdGm2Ahrh">
-                开机 （gif）
+            <p className="text-center">请在连接设备后，激活设备之前，点击APP首页左上角产品图标，确认产品固件是否已更新至最新版本。</p>
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcnGSWeowzk87zw4mdGm2Ahrh text-center">
+                开机及激活
             </h2>
             <div>
                 <p className="img-container">
+                    <span>长按录音键直至屏幕亮起，表示设备已被激活</span>
                     <img src={bootImage} alt="按住录音键以激活设备" />
-                    <span>按住录音键以激活设备</span>
                 </p>
             </div>
-
-            <h2 className="heading-2 ace-line old-record-id-doxcnzBrdlCvDI6rqnoUTTOQIOg">
-                待机状态(静态)
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcnzBrdlCvDI6rqnoUTTOQIOg text-center">
+                待机状态
             </h2>
             <div className="img-container-list">
                 <p className="img-container">
+                    <span>未连接到应用程序；检测到无未传输的文件</span>
                     <img src={standby1} alt="未连接到应用程序；没有未传输的记录" />
-                    <span>未连接到应用程序；没有未传输的记录</span>
                 </p>
                 <p className="img-container">
+                    <span>未连接到应用程序；检测到有未传输的文件</span>
                     <img src={standby2} alt="未连接到应用程序；检测到未传输的记录" />
-                    <span>未连接到应用程序；检测到未传输的记录</span>
                 </p>
                 <p className="img-container">
-                    <img src={standby3} alt="已连接应用程序" />
                     <span>已连接应用程序</span>
+                    <img src={standby3} alt="已连接应用程序" />
                 </p>
             </div>
-
-            <h2 className="heading-2 ace-line old-record-id-doxcn34Pm0vChXCzRilPX5WP79d">
-                Battery (静态)
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcn34Pm0vChXCzRilPX5WP79d text-center">
+                电量及充电状态
             </h2>
             <div className="img-container-list">
                 <p className="img-container">
-                    <img src={battery1} alt="电量低" />
                     <span>电量低</span>
+                    <img src={battery1} alt="电量低" />
+
                 </p>
                 <p className="img-container">
-                    <img src={battery2} alt="请充电" />
                     <span>请充电</span>
+                    <img src={battery2} alt="请充电" />
+
                 </p>
                 <p className="img-container">
-                    <img src={battery3} alt="充电中" />
                     <span>充电中</span>
+                    <img src={battery3} alt="充电中" />
+
                 </p>
             </div>
-
-            <h2 className="heading-2 ace-line old-record-id-doxcnyxEp7EQfjLZk3tLTEBl62f">
-                录音（.gif）
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcnyxEp7EQfjLZk3tLTEBl62f text-center">
+                录音状态
             </h2>
             <p className="img-container">
-                <img src={recording} alt="录音中" />
                 <span>录音中</span>
+                <img src={recording} alt="录音中" />
             </p>
-
-            <h2 className="heading-2 ace-line old-record-id-doxcncNudGZ0Va8ZPqiPniOepRS">
-                Highlight（.gif）
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcncNudGZ0Va8ZPqiPniOepRS text-center">
+                一键标记
             </h2>
+            <p className="text-center">*在录制过程中，短按一次录音键标记重点信息</p>
             <p className="img-container">
-                <img src={recordingHighlights} alt="正在Highlight重点内容" />
-                <span>正在Highlight重点内容</span>
+                <span>正在标记重点内容</span>
+                <img src={recordingHighlights} alt="正在标记重点内容" />
             </p>
-            <p>*在录制过程中，短按一次录音键标记重点信息</p>
 
-            <h2 className="heading-2 ace-line old-record-id-doxcnxrzsMVnJqdTMIe25cHVqOh">
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcnxrzsMVnJqdTMIe25cHVqOh text-center">
                 文件传输
             </h2>
             <div className="img-container-list">
                 <p className="img-container">
-                    <img src={transferBle} alt="蓝牙传输" />
                     <span>蓝牙传输</span>
+                    <img src={transferBle} alt="蓝牙传输" />
                 </p>
                 <p className="img-container">
-                    <img src={transferWifi} alt="Wi-Fi 传输" />
                     <span>Wi-Fi 传输</span>
+                    <img src={transferWifi} alt="Wi-Fi 传输" />
+
                 </p>
                 <p className="img-container">
-                    <img src={transferWired} alt="有线传输" />
                     <span>有线传输</span>
+                    <img src={transferWired} alt="有线传输" />
                 </p>
             </div>
-
-            <h2 className="heading-2 ace-line old-record-id-doxcn2Wcr5YmflDVVg1kki6lTP8">
+            <br />
+            <br />
+            <h2 className="heading-2 ace-line old-record-id-doxcn2Wcr5YmflDVVg1kki6lTP8 text-center">
                 <strong>固件更新</strong>
             </h2>
             <p className="img-container">
-                <img src={ota} alt="正在更新固件" />
                 <span>正在更新固件</span>
+                <img src={ota} alt="正在更新固件" />                
             </p>
             <p>
                 <span className="lark-record-clipboard"></span>
