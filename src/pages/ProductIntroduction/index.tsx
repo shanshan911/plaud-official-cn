@@ -7,7 +7,7 @@ import battery1 from '@/assets/images/product-introduction/battery-1.webp';
 import battery2 from '@/assets/images/product-introduction/battery-2.webp';
 import battery3 from '@/assets/images/product-introduction/battery-3.webp';
 import recording from '@/assets/images/product-introduction/recording.webp';
-import recordingHighlights from '@/assets/images/product-introduction/recording-highlights-.webp';
+import recordingHighlights from '@/assets/images/product-introduction/recording-highlights.webp';
 import transferBle from '@/assets/images/product-introduction/Transfer-ble.webp';
 import transferWifi from '@/assets/images/product-introduction/Transfer-wifi.webp';
 import transferWired from '@/assets/images/product-introduction/Transfer-wired.webp';
