@@ -273,6 +273,10 @@ const Home = () => {
                 <div className="footer-banner-right">
                     <p>反馈给 Plaud：<a href="mailto:support@plaud.cn">Support@plaud.cn</a></p>
                     <p>
+                        <a href="https://app.plaud.cn/terms-service/business-principles.html" target="_blank" rel="noopener noreferrer">
+                           商业准则
+                        </a>
+                        {' | '}
                         <a href="https://app.plaud.cn/terms-service/user-agreement-cn.html" target="_blank" rel="noopener noreferrer">
                             用户协议
                         </a>
