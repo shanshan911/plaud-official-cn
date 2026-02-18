@@ -42,7 +42,8 @@ import plaudIntelligence5 from '@/assets/images/home/plaud-intelligence-5.png';
 // 关注我们 - 图片
 import logoPlaud from '@/assets/images/home/logoPlaud.png';
 import channel from '@/assets/images/home/channel.png';
-
+import jdQrCode from '@/assets/images/home/jd.png';
+import tmQrCode from '@/assets/images/home/tm.jpg';
 // 关注我们 - 二维码
 import serviceQrCode from '@/assets/images/home/service-account.png';
 import videoQrCode from '@/assets/images/home/video-account.png';
@@ -178,9 +179,30 @@ const Home = () => {
 
 
                     <div className="product-cards">
-                        <img src={productNotePro} alt="Plaud Note Pro" />
-                        <img src={productNote} alt="Plaud Note" />
-                        <img src={productNotePinS} alt="Plaud NotePin S" />
+                        <div className='card-item'>
+                           <img src={productNotePro} alt="Plaud Note Pro" />
+                           <div className="button_cart">
+                              <a className="button_back" href="https://detail.tmall.com/item.htm?id=964623891296" target='_blank'>
+                                Add To Cart
+                              </a>
+                           </div>
+                        </div>
+                         <div className='card-item'>
+                           <img src={productNote} alt="Plaud Note" />
+                           <div className="button_cart">
+                              <a className="button_back" href="https://detail.tmall.com/item.htm?id=963977914722" target='_blank'>
+                                Add To Cart
+                              </a>
+                           </div>
+                        </div>
+                         <div className='card-item'>
+                            <img src={productNotePinS} alt="Plaud NotePin S" />
+                           <div className="button_cart">
+                              <a className="button_back" href="https://detail.tmall.com/item.htm?id=965213262371" target='_blank'>
+                                Add To Cart
+                              </a>
+                           </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -209,14 +231,32 @@ const Home = () => {
                     </div>
 
                     <div className="follow-title">
-                        <h3>FOLLOW US</h3>
-                        <h4>关注我们</h4>
+                        <div>
+                            <h3>FOLLOW US</h3>
+                            <h4>关注我们</h4>
+                        </div>
                     </div>
 
 
 
                     <div className='social-wrapper'>
-                        <img src={channel} alt="channel" />
+                        <div className="shop-group">
+                            <div className="shop-group-content">
+                                <div className="shop-item">
+                                    <div className="qr-placeholder">
+                                        <img src={jdQrCode} alt="Android 下载" />
+                                    </div>
+                                    <a href='https://plaud.tmall.com/shop/view_shop.htm?spm=pc_detail.30350276.shop_block.dshopinfo.22ef7dd6ndSGiE' className="text-link" target="_blank">京东旗舰店</a>
+                                </div>
+                                <div className="shop-item">
+                                    <div className="qr-placeholder">
+                                        <img src={tmQrCode} alt="iOS 下载" />
+                                    </div>
+                                    <a href='https://mall.jd.com/index-77096652.html?from=pc'  className="text-link" target="_blank">天猫旗舰店</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div><img src={channel} alt="channel" className="channel-list"/></div>
                         <div className="qr-section">
 
                             <div className="qr-group">
@@ -235,6 +275,9 @@ const Home = () => {
                             </div>
 
 
+
+
+
                             <div className="qr-group">
                                 <div className="qr-item">
                                     <div className="qr-placeholder">
@@ -248,6 +291,39 @@ const Home = () => {
                                     </div>
                                     <p>ios 下载</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                      <div className="follow-title">
+
+                         <div>
+                            <h3>CONTACT US</h3>
+                            <h4>联系我们</h4>
+                        </div>
+                        <div className="contact_us">
+                            <div className="contact_item">
+                                 <div>技术支持</div>
+                                 <div>support@plaud.cn</div>
+                            </div>
+                            <div className="contact_item">
+                                 <div>经销合作</div>
+                                 <div>sales@plaud.cn</div>
+                            </div>
+                            <div className="contact_item">
+                                 <div>市场合作</div>
+                                 <div>marketing@plaud.cn</div>
+                            </div>
+                            <div className="contact_item">
+                                 <div>媒体合作</div>
+                                 <div>pr@plaud.cn</div>
+                            </div>
+                            <div className="contact_item">
+                                 <div>礼品团购</div>
+                                 <div>sales@plaud.cn</div>
+                            </div>
+                            <div className="contact_item">
+                                 <div>供应商合作</div>
+                                 <div>supplychain@plaud.cn</div>
                             </div>
                         </div>
                     </div>

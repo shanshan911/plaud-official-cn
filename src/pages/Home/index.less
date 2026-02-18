@@ -186,7 +186,6 @@
         }
     }
 
-    // 第三块：各领域专业人士
     .section-professionals {
         padding: 110px;
 
@@ -257,9 +256,33 @@
             align-items: center;
             gap: 70px;
             margin-top: 70px;
-
-            >img {
-                width: 0;
+            .card-item
+            {
+                position: relative;
+                flex: 1;
+                .button_cart
+                {
+                    position: absolute;
+                    bottom: 5%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .button_back
+                {
+                    background: #000;
+                    color: #FFF;
+                    border-radius: 5px;
+                    padding: 10px;
+                    font-size: 12px;
+                    text-decoration: none;
+                }
+                 .button_back:hover
+                {
+                    background: #666;
+                }
+            }
+            img {
+                width: 100%;
                 flex: 1;
             }
         }
@@ -321,7 +344,24 @@
         }
 
         .follow-title {
-            margin-bottom: 66px;
+            margin-bottom: 40px;
+            .contact_us
+            {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+            }
+            .contact_item div:first-child
+            {
+                font-size: 18px;
+                padding-bottom: 4px;
+            }
+            .contact_item
+            {
+               flex: 0 0 calc(33% - 20px);
+            }
 
             h3 {
                 color: #000;
@@ -347,21 +387,59 @@
         .social-wrapper {
             margin-bottom: 40px;
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
-            gap: 100px;
+            gap: 200px;
 
-            >img {
+            .channel-list {
                 width: 400px;
+                padding-top: 20px;
             }
+            .shop-group
+            {
+              display: flex;
+              gap: 50px;
+              flex-wrap: wrap;
+              justify-content: center;
+              .shop-group-content
+                {
+                display: flex;
+                gap:20px;
+                padding-top: 24px;
+                .shop-item
+                {
+                    text-align: center;
+                    .qr-placeholder
+                    { 
+                        img{
+                            width: 52px;
+                            height: 52px;
+                        }
+                    }
+                    .text-link
+                        {
+                        text-decoration: none;
+                        color: #61c4f6;
+                        font-family: "Jokker", sans-serif;
+                        font-size: 14px;
+                        line-height: 22.675px;
+                        padding-top: 20px;
+                        }
+                        .text-link:hover
+                        {
+                        text-decoration: underline;
+                        }
+                }
+                }
+            }
+            
 
         }
 
         .qr-section {
-            width: 0;
-            flex: 1;
             display: flex;
-            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
 
 
             .qr-group {
@@ -442,7 +520,15 @@
 
 
 }
-
+@media (max-width: 1600px) {
+    .home {
+        .section-follow-us {
+               .social-wrapper {
+                gap: 60px;
+               }
+        }
+    }
+}
 /* 移动端适配 */
 @media (max-width: 768px) {
 
@@ -600,7 +686,7 @@
         }
 
         .section-products {
-            padding: 38px 55px;
+            padding: 34px;
 
             // .section-container{
             //     .section-title-center{
@@ -611,8 +697,15 @@
                 flex-direction: column;
                 gap: 38px;
                 margin-top: 0px !important;
-
-                >img {
+                 .card-item
+                {
+                    .button_back
+                    {
+                        padding: 6px;
+                        font-size: 12px;
+                    }
+                }
+                img {
                     width: 100%;
                 }
             }
@@ -640,7 +733,7 @@
 
 
         .section-follow-us {
-            padding: 38px;
+            padding: 38px 24px;
 
             .section-container {
                 display: flex;
@@ -654,18 +747,26 @@
 
                 .follow-title {
                     margin-bottom: 0;
-
-                    h4 {
+                    text-align: left;
+                    flex-direction: column;
+                    div{
                         text-align: center;
+                    }
+                    .contact_item
+                    {
+                    flex: 0 0 calc(50% - 20px);
                     }
                 }
 
                 .social-wrapper {
                     display: block;
 
-                    >img {
-                        width: 100%;
-                        margin-bottom: 30px;
+                    .channel-list {
+                      width: 100%;
+                      max-width: 400px;
+                    }
+                    .shop-group {
+                        gap: 0;
                     }
 
                     .qr-section {
@@ -677,6 +778,9 @@
                             width: 0;
                             flex: 1;
                             gap: 20px;
+                            display: flex;
+                            justify-content: center;
+                            padding-top: 30px;
 
                             .qr-item {
                                 >p {
