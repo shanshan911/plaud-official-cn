@@ -183,7 +183,7 @@ const Home = () => {
                            <img src={productNotePro} alt="Plaud Note Pro" />
                            <div className="button_cart">
                               <a className="button_back" href="https://detail.tmall.com/item.htm?id=964623891296" target='_blank'>
-                                Add To Cart
+                                立即购买
                               </a>
                            </div>
                         </div>
@@ -191,7 +191,7 @@ const Home = () => {
                            <img src={productNote} alt="Plaud Note" />
                            <div className="button_cart">
                               <a className="button_back" href="https://detail.tmall.com/item.htm?id=963977914722" target='_blank'>
-                                Add To Cart
+                                立即购买
                               </a>
                            </div>
                         </div>
@@ -199,7 +199,7 @@ const Home = () => {
                             <img src={productNotePinS} alt="Plaud NotePin S" />
                            <div className="button_cart">
                               <a className="button_back" href="https://detail.tmall.com/item.htm?id=965213262371" target='_blank'>
-                                Add To Cart
+                                立即购买
                               </a>
                            </div>
                         </div>
