@@ -338,8 +338,10 @@ const Home = () => {
 
             {/* 底部横幅 */}
             <div className="footer-banner">
+              
                 <div className="footer-banner-left">
                     <p>Copyright@2025 深圳机智连接科技有限公司</p>
+                    <div>生成式人工智能服务登记号：Guangdong-Plaud-20251229S0027</div>
                     <p>
                         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
                             粤ICP备2025405986号
