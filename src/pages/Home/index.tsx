@@ -246,13 +246,13 @@ const Home = () => {
                                     <div className="qr-placeholder">
                                         <img src={jdQrCode} alt="Android 下载" />
                                     </div>
-                                    <a href='https://plaud.tmall.com/shop/view_shop.htm?spm=pc_detail.30350276.shop_block.dshopinfo.22ef7dd6ndSGiE' className="text-link" target="_blank">京东旗舰店</a>
+                                    <a href='https://mall.jd.com/index-77096652.html?from=pc' className="text-link" target="_blank">京东旗舰店</a>
                                 </div>
                                 <div className="shop-item">
                                     <div className="qr-placeholder">
                                         <img src={tmQrCode} alt="iOS 下载" />
                                     </div>
-                                    <a href='https://mall.jd.com/index-77096652.html?from=pc'  className="text-link" target="_blank">天猫旗舰店</a>
+                                    <a href='https://plaud.tmall.com/shop/view_shop.htm?spm=pc_detail.30350276.shop_block.dshopinfo.22ef7dd6ndSGiE'  className="text-link" target="_blank">天猫旗舰店</a>
                                 </div>
                             </div>
                         </div>
