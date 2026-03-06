@@ -348,6 +348,12 @@ const Home = () => {
                         </a>
                     </p>
                 </div>
+                <div className="footer-banner-left">
+                    <p>地址：深圳市南山区南山街道登良社区东滨路与南光路交汇处永新时代广场2号楼20层2001 邮编 518000</p>
+                    <p>
+                    电话：0755-86706325
+                    </p>
+                </div>
                 <div className="footer-banner-right">
                     <p>反馈给 Plaud：<a href="mailto:support@plaud.cn">Support@plaud.cn</a></p>
                     <p>
