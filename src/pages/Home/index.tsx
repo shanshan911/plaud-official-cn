@@ -223,10 +223,16 @@ const Home = () => {
             {/* 安全认证模块 - 移动端 */}
             <div className="section-security section-security-mobile">
                 <div className="section-container">
-                    <h2 className="section-title-center">Enterprise-grade security</h2>
-                    <p className="section-subtitle">Built with privacy at the core</p>
-                    <SecurityCarousel isMobile={true} />
-                    <a href="https://plaud.ai/security" target="_blank" className="learn-more-btn">Learn More</a>
+                    <h2 className="section-title-center">Work smarter, not harder</h2>
+                    <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
+                    
+                    {workSmarterTabs.map(tab => (
+                        <div key={tab.id} className="mobile-video-block">
+                            <h3 className="mobile-tab-label">{tab.label}</h3>
+                            <p className="mobile-tab-subtitle">{tab.subtitle}</p>
+                            <VideoPlayer src={tab.video} />
+                        </div>
+                    ))}
                 </div>
             </div>
 
