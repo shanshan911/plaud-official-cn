@@ -334,7 +334,7 @@ const Home = () => {
                     <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
                     
                     {workSmarterTabs.map(tab => (
-                        <div key={tab.id} className={`mobile-video-block mobile-video-block-${tab.id}`}>
+                        <div key={tab.id} className="mobile-video-block">
                             <h3 className="mobile-tab-label">{tab.label}</h3>
                             <p className="mobile-tab-subtitle">{tab.subtitle}</p>
                             <VideoPlayer src={tab.video} />
