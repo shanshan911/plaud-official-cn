@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from 'react';
 import './index.less';
 // import banner0 from '@/assets/images/home/banner-0.png';
 // import banner1 from '@/assets/images/home/banner-1.png';
@@ -8,6 +7,7 @@ import './index.less';
 // import banner5 from '@/assets/images/home/banner-5.png';
 
 import heroProduct from '@/assets/images/home/hero-product.png';
+
 // 获奖徽章图片
 import awards from '@/assets/images/home/awards.png';
 
@@ -51,87 +51,7 @@ import videoQrCode from '@/assets/images/home/video-account.png';
 import androidQrCode from '@/assets/images/home/android.png';
 import iosQrCode from '@/assets/images/home/ios.png';
 
-// Tab 配置数据
-const workSmarterTabs = [
-    {
-        id: 'capture',
-        label: 'Capture',
-        subtitle: 'Audio | Highlights | Text | Images',
-        video: 'https://global.plaud.ai/cdn/shop/videos/c/vp/773473347c4a45959b60ccb8e97065c3/773473347c4a45959b60ccb8e97065c3.HD-720p-1.6Mbps-58423474.mp4?v=0', // 临时占位视频
-    },
-    {
-        id: 'extract',
-        label: 'Extract',
-        subtitle: 'Transcription | Summary | Mind Map',
-        video: '//global.plaud.ai/cdn/shop/videos/c/vp/1d9f8635d7124cd780f11dc84ca325ff/1d9f8635d7124cd780f11dc84ca325ff.HD-720p-2.1Mbps-58423031.mp4?v=0', // 临时占位视频
-    },
-    {
-        id: 'utilize',
-        label: 'Utilize',
-        subtitle: 'Ask Plaud | AutoFlow | Integrate, Share & Export',
-        video: '//global.plaud.ai/cdn/shop/videos/c/vp/27a928391db24f93a2b9270a2777e9d8/27a928391db24f93a2b9270a2777e9d8.HD-720p-1.6Mbps-58423030.mp4?v=0', // 临时占位视频
-    },
-];
-
-// 通用视频播放组件 - 独立控制播放状态
-const VideoPlayer = ({ src }: { src: string }) => {
-    const [isPlaying, setIsPlaying] = useState(true);
-    const videoRef = useRef<HTMLVideoElement>(null);
-
-    useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.play().catch(() => {});
-            setIsPlaying(true);
-        }
-    }, [src]);
-
-    const togglePlay = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
-                videoRef.current.play();
-            }
-            setIsPlaying(!isPlaying);
-        }
-    };
-
-    return (
-        <div className="video-container">
-            <video
-                ref={videoRef}
-                src={src}
-                autoPlay
-                muted
-                loop
-                playsInline
-            />
-            <button 
-                className="play-pause-btn"
-                onClick={togglePlay}
-                aria-label={isPlaying ? '暂停' : '播放'}
-            >
-                {isPlaying ? (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1"/>
-                        <rect x="8.5" y="7.5" width="2" height="9" rx="0.5" fill="currentColor"/>
-                        <rect x="13.5" y="7.5" width="2" height="9" rx="0.5" fill="currentColor"/>
-                    </svg>
-                ) : (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1"/>
-                        <path d="M10 7.5V16.5L16 12L10 7.5Z" fill="currentColor"/>
-                    </svg>
-                )}
-            </button>
-        </div>
-    );
-};
-
 const Home = () => {
-    const [activeTab, setActiveTab] = useState('capture');
-    const activeTabData = workSmarterTabs.find(tab => tab.id === activeTab);
-
     return (
         <div className="home">
             {/* 顶部横幅 */}
@@ -302,46 +222,6 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="section-work-smarter section-work-smarter-pc">
-                <div className="section-container">
-                    <h2 className="section-title-center">Work smarter, not harder</h2>
-                    <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
-                    
-                    <div className="tabs-container">
-                        <div className="tabs-nav">
-                            {workSmarterTabs.map(tab => (
-                                <div
-                                    key={tab.id}
-                                    className={`tab-item ${activeTab === tab.id ? 'active' : ''}`}
-                                    onMouseEnter={() => setActiveTab(tab.id)}
-                                >
-                                    {tab.label}
-                                </div>
-                            ))}
-                        </div>
-                        <div className="tab-subtitle">
-                            {activeTabData?.subtitle}
-                        </div>
-                    </div>
-
-                    <VideoPlayer key={activeTab} src={activeTabData?.video || ''} />
-                </div>
-            </div>
-
-            <div className="section-work-smarter section-work-smarter-mobile">
-                <div className="section-container">
-                    <h2 className="section-title-center">Work smarter, not harder</h2>
-                    <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
-                    
-                    {workSmarterTabs.map(tab => (
-                        <div key={tab.id} className="mobile-video-block">
-                            <h3 className="mobile-tab-label">{tab.label}</h3>
-                            <p className="mobile-tab-subtitle">{tab.subtitle}</p>
-                            <VideoPlayer src={tab.video} />
-                        </div>
-                    ))}
-                </div>
-            </div>
 
             {/* 第六块：关注我们 */}
             <div className="section-follow-us">
