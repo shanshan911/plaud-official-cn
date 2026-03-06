@@ -1,13 +1,3 @@
-// 图片懒加载样式
-img.loading {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-img.loaded {
-    opacity: 1;
-}
-
 .home {
     min-width: 1400px;
     overflow-y: auto;
@@ -416,19 +406,6 @@ img.loaded {
             padding-top: 20px;
         }
 
-        .video-tabs-container {
-            position: relative;
-            width: 100%;
-
-            .video-tab-panel {
-                display: none;
-
-                &.active {
-                    display: block;
-                }
-            }
-        }
-
         .video-container {
             position: relative;
             width: 100%;
@@ -442,13 +419,6 @@ img.loaded {
                 display: block;
                 min-height: 500px;
                 object-fit: cover;
-            }
-
-            .video-placeholder {
-                width: 100%;
-                min-height: 500px;
-                background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-                animation: pulse 1.5s ease-in-out infinite;
             }
 
             .play-pause-btn {
@@ -472,11 +442,6 @@ img.loaded {
                 }
             }
         }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
     }
 
     // PC端显示，移动端隐藏
@@ -486,172 +451,6 @@ img.loaded {
 
     // 移动端隐藏，PC端显示
     .section-work-smarter-mobile {
-        display: none;
-    }
-
-    // 安全认证模块
-    .section-security {
-        padding:  110px;
-
-        .section-container {
-            max-width: 1800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title-center {
-            font-size: 42px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #000;
-        }
-
-        .section-subtitle {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 48px;
-        }
-
-        .learn-more-btn {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 14px 48px;
-            background: #00D26A;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 500;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-
-            &:hover {
-                background: #00b85c;
-                transform: translateY(-2px);
-            }
-        }
-    }
-
-    .security-carousel {
-        width: 100%;
-        
-        .carousel-viewport {
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel-track {
-            display: flex;
-        }
-
-        .cert-card {
-            padding: 0 12px;
-            box-sizing: border-box;
-        }
-
-        .cert-card-inner {
-            background: #f8f9fa;
-            border-radius: 16px;
-            padding: 32px 24px;
-            height: 100%;
-            min-height: 320px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .cert-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            position: relative;
-
-            svg {
-                width: 100%;
-                height: 100%;
-            }
-
-            .sensiba-badge {
-                position: absolute;
-                top: -8px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #00D26A;
-                color: #fff;
-                font-size: 10px;
-                padding: 2px 8px;
-                border-radius: 4px;
-                white-space: nowrap;
-            }
-        }
-
-        .cert-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #000;
-            margin: 0 0 4px 0;
-        }
-
-        .cert-subtitle {
-            font-size: 14px;
-            color: #666;
-            margin: 0 0 16px 0;
-        }
-
-        .cert-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-            margin: 0;
-            flex: 1;
-        }
-
-        .carousel-controls {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .carousel-arrow {
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: #333;
-            }
-        }
-
-        .carousel-progress {
-            width: 200px;
-            height: 4px;
-            background: #e0e0e0;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .carousel-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #00D26A 0%, #00d0ff 100%);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-    }
-
-    .section-security-pc {
-        display: block;
-    }
-
-    .section-security-mobile {
         display: none;
     }
 
@@ -1130,76 +929,6 @@ img.loaded {
                         }
                     }
                 }
-            }
-        }
-
-        // 安全认证模块 - 移动端
-        .section-security-pc {
-            display: none;
-        }
-
-        .section-security-mobile {
-            display: block;
-        }
-
-        .section-security {
-            padding: 40px 24px;
-
-            .section-title-center {
-                font-size: 24px !important;
-                margin-bottom: 8px !important;
-            }
-
-            .section-subtitle {
-                font-size: 16px;
-                margin-bottom: 32px;
-            }
-
-            .learn-more-btn {
-                margin-top: 24px;
-                padding: 12px 36px;
-                font-size: 14px;
-            }
-        }
-
-        .security-carousel {
-            .cert-card-inner {
-                padding: 24px 16px;
-                min-height: 280px;
-            }
-
-            .cert-icon {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 16px;
-
-                .sensiba-badge {
-                    font-size: 8px;
-                    padding: 1px 6px;
-                }
-            }
-
-            .cert-title {
-                font-size: 18px;
-            }
-
-            .cert-subtitle {
-                font-size: 12px;
-                margin-bottom: 12px;
-            }
-
-            .cert-description {
-                font-size: 12px;
-                line-height: 1.5;
-            }
-
-            .carousel-controls {
-                margin-top: 24px;
-                gap: 12px;
-            }
-
-            .carousel-progress {
-                width: 120px;
             }
         }
 
