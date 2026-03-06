@@ -1,17 +1,23 @@
+import { useState, useRef, useEffect } from 'react';
 import './index.less';
+// import banner0 from '@/assets/images/home/banner-0.png';
+// import banner1 from '@/assets/images/home/banner-1.png';
+// import banner2 from '@/assets/images/home/banner-2.png';
+// import banner3 from '@/assets/images/home/banner-3.png';
+// import banner4 from '@/assets/images/home/banner-4.png';
+// import banner5 from '@/assets/images/home/banner-5.png';
 
-// 首屏关键图片 - 立即加载
 import heroProduct from '@/assets/images/home/hero-product.png';
-
 // 获奖徽章图片
 import awards from '@/assets/images/home/awards.png';
 
-// 非首屏图片 - 使用原生 loading="lazy"
+// 放大人类智能 - 场景图片
 import aiScene1 from '@/assets/images/home/aiScene1.png';
 import aiScene2 from '@/assets/images/home/aiScene2.png';
 import aiScene3 from '@/assets/images/home/aiScene3.png';
 import aiScene4 from '@/assets/images/home/aiScene4.png';
 
+// 各领域专业人士 - 场景图片
 import professionalExecutive from '@/assets/images/home/professional-executive.png';
 import professionalSales from '@/assets/images/home/professional-sales.png';
 import professionalMedical from '@/assets/images/home/professional-medical.png';
@@ -19,24 +25,108 @@ import professionalLawyer from '@/assets/images/home/professional-lawyer.png';
 import professionalEducator from '@/assets/images/home/professional-educator.png';
 import professionalCreator from '@/assets/images/home/professional-creator.png';
 
+// Plaud 产品系列图片
 import productNotePro from '@/assets/images/home/product-note-pro.png';
 import productNote from '@/assets/images/home/product-note.png';
 import productNotePinS from '@/assets/images/home/product-notepin-s.png';
 
+
+// plaud intelligence™ 图片
 import plaudIntelligence1 from '@/assets/images/home/plaud-intelligence-1.png';
 import plaudIntelligence2 from '@/assets/images/home/plaud-intelligence-2.png';
 import plaudIntelligence3 from '@/assets/images/home/plaud-intelligence-3.png';
 import plaudIntelligence4 from '@/assets/images/home/plaud-intelligence-4.png';
 import plaudIntelligence5 from '@/assets/images/home/plaud-intelligence-5.png';
 
+
+// 关注我们 - 图片
 import logoPlaud from '@/assets/images/home/logoPlaud.png';
 import channel from '@/assets/images/home/channel.png';
 import jdQrCode from '@/assets/images/home/jd.png';
 import tmQrCode from '@/assets/images/home/tm.jpg';
+// 关注我们 - 二维码
 import serviceQrCode from '@/assets/images/home/service-account.png';
 import videoQrCode from '@/assets/images/home/video-account.png';
+
 import androidQrCode from '@/assets/images/home/android.png';
 import iosQrCode from '@/assets/images/home/ios.png';
+
+// Tab 配置数据
+const workSmarterTabs = [
+    {
+        id: 'capture',
+        label: 'Capture',
+        subtitle: 'Audio | Highlights | Text | Images',
+        video: 'https://global.plaud.ai/cdn/shop/videos/c/vp/773473347c4a45959b60ccb8e97065c3/773473347c4a45959b60ccb8e97065c3.HD-720p-1.6Mbps-58423474.mp4?v=0', // 临时占位视频
+    },
+    {
+        id: 'extract',
+        label: 'Extract',
+        subtitle: 'Transcription | Summary | Mind Map',
+        video: '//global.plaud.ai/cdn/shop/videos/c/vp/1d9f8635d7124cd780f11dc84ca325ff/1d9f8635d7124cd780f11dc84ca325ff.HD-720p-2.1Mbps-58423031.mp4?v=0', // 临时占位视频
+    },
+    {
+        id: 'utilize',
+        label: 'Utilize',
+        subtitle: 'Ask Plaud | AutoFlow | Integrate, Share & Export',
+        video: '//global.plaud.ai/cdn/shop/videos/c/vp/27a928391db24f93a2b9270a2777e9d8/27a928391db24f93a2b9270a2777e9d8.HD-720p-1.6Mbps-58423030.mp4?v=0', // 临时占位视频
+    },
+];
+
+// 通用视频播放组件 - 独立控制播放状态
+const VideoPlayer = ({ src }: { src: string }) => {
+    const [isPlaying, setIsPlaying] = useState(true);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch(() => {});
+            setIsPlaying(true);
+        }
+    }, [src]);
+
+    const togglePlay = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
+
+    return (
+        <div className="video-container">
+            <video
+                ref={videoRef}
+                src={src}
+                autoPlay
+                muted
+                loop
+                playsInline
+            />
+            <button 
+                className="play-pause-btn"
+                onClick={togglePlay}
+                aria-label={isPlaying ? '暂停' : '播放'}
+            >
+                {isPlaying ? (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1"/>
+                        <rect x="8.5" y="7.5" width="2" height="9" rx="0.5" fill="currentColor"/>
+                        <rect x="13.5" y="7.5" width="2" height="9" rx="0.5" fill="currentColor"/>
+                    </svg>
+                ) : (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1"/>
+                        <path d="M10 7.5V16.5L16 12L10 7.5Z" fill="currentColor"/>
+                    </svg>
+                )}
+            </button>
+        </div>
+    );
+};
 
 const Home = () => {
     return (
@@ -209,25 +299,39 @@ const Home = () => {
                 </div>
             </div>
 
-
-            {/* 安全认证模块 - 桌面端 */}
-            <div className="section-security section-security-pc">
+            <div className="section-work-smarter section-work-smarter-pc">
                 <div className="section-container">
-                    <h2 className="section-title-center">Enterprise-grade security</h2>
-                    <p className="section-subtitle">Built with privacy at the core</p>
-                    <SecurityCarousel isMobile={false} />
-                    <a href="https://plaud.ai/security" target="_blank" className="learn-more-btn">Learn More</a>
+                    <h2 className="section-title-center">Work smarter, not harder</h2>
+                    <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
+                    
+                    <div className="tabs-container">
+                        <div className="tabs-nav">
+                            {workSmarterTabs.map(tab => (
+                                <div
+                                    key={tab.id}
+                                    className={`tab-item ${activeTab === tab.id ? 'active' : ''}`}
+                                    onMouseEnter={() => setActiveTab(tab.id)}
+                                >
+                                    {tab.label}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="tab-subtitle">
+                            {activeTabData?.subtitle}
+                        </div>
+                    </div>
+
+                    <VideoPlayer key={activeTab} src={activeTabData?.video || ''} />
                 </div>
             </div>
 
-            {/* 安全认证模块 - 移动端 */}
-            <div className="section-security section-security-mobile">
+            <div className="section-work-smarter section-work-smarter-mobile">
                 <div className="section-container">
                     <h2 className="section-title-center">Work smarter, not harder</h2>
                     <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
                     
                     {workSmarterTabs.map(tab => (
-                        <div key={tab.id} className="mobile-video-block">
+                        <div key={tab.id} className={`mobile-video-block mobile-video-block-${tab.id}`}>
                             <h3 className="mobile-tab-label">{tab.label}</h3>
                             <p className="mobile-tab-subtitle">{tab.subtitle}</p>
                             <VideoPlayer src={tab.video} />
