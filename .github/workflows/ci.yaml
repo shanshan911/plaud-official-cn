@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   cfg:
-    runs-on: iops-runner-general
+    runs-on: iops-cn-runner-general
     outputs:
       images: ${{ steps.j.outputs.images }}
     steps:
