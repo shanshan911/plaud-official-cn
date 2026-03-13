@@ -2,10 +2,10 @@
 FROM 470515048733.dkr.ecr.cn-northwest-1.amazonaws.com.cn/public/library/node:20-slim AS builder
 WORKDIR /app
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm --registry=https://registry.npmmirror.com
 
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --registry=https://registry.npmmirror.com
 
 COPY . .
 RUN pnpm run build
