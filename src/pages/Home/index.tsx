@@ -1,23 +1,16 @@
+import { useState, useRef, useEffect, memo, useCallback, useMemo } from 'react';
 import './index.less';
-// import banner0 from '@/assets/images/home/banner-0.png';
-// import banner1 from '@/assets/images/home/banner-1.png';
-// import banner2 from '@/assets/images/home/banner-2.png';
-// import banner3 from '@/assets/images/home/banner-3.png';
-// import banner4 from '@/assets/images/home/banner-4.png';
-// import banner5 from '@/assets/images/home/banner-5.png';
 
+// 首屏关键图片 - 立即加载
 import heroProduct from '@/assets/images/home/hero-product.png';
-
-// 获奖徽章图片
 import awards from '@/assets/images/home/awards.png';
 
-// 放大人类智能 - 场景图片
+// 非首屏图片 - 使用原生 loading="lazy"
 import aiScene1 from '@/assets/images/home/aiScene1.png';
 import aiScene2 from '@/assets/images/home/aiScene2.png';
 import aiScene3 from '@/assets/images/home/aiScene3.png';
 import aiScene4 from '@/assets/images/home/aiScene4.png';
 
-// 各领域专业人士 - 场景图片
 import professionalExecutive from '@/assets/images/home/professional-executive.png';
 import professionalSales from '@/assets/images/home/professional-sales.png';
 import professionalMedical from '@/assets/images/home/professional-medical.png';
@@ -25,33 +18,286 @@ import professionalLawyer from '@/assets/images/home/professional-lawyer.png';
 import professionalEducator from '@/assets/images/home/professional-educator.png';
 import professionalCreator from '@/assets/images/home/professional-creator.png';
 
-// Plaud 产品系列图片
 import productNotePro from '@/assets/images/home/product-note-pro.png';
 import productNote from '@/assets/images/home/product-note.png';
 import productNotePinS from '@/assets/images/home/product-notepin-s.png';
 
-
-// plaud intelligence™ 图片
 import plaudIntelligence1 from '@/assets/images/home/plaud-intelligence-1.png';
 import plaudIntelligence2 from '@/assets/images/home/plaud-intelligence-2.png';
 import plaudIntelligence3 from '@/assets/images/home/plaud-intelligence-3.png';
 import plaudIntelligence4 from '@/assets/images/home/plaud-intelligence-4.png';
 import plaudIntelligence5 from '@/assets/images/home/plaud-intelligence-5.png';
 
-
-// 关注我们 - 图片
 import logoPlaud from '@/assets/images/home/logoPlaud.png';
 import channel from '@/assets/images/home/channel.png';
 import jdQrCode from '@/assets/images/home/jd.png';
 import tmQrCode from '@/assets/images/home/tm.jpg';
-// 关注我们 - 二维码
 import serviceQrCode from '@/assets/images/home/service-account.png';
 import videoQrCode from '@/assets/images/home/video-account.png';
-
 import androidQrCode from '@/assets/images/home/android.png';
 import iosQrCode from '@/assets/images/home/ios.png';
+import securityImage1 from '@/assets/images/section/security-image1.avif';
+import securityImage2 from '@/assets/images/section/security-image2.avif';
+import securityImage3 from '@/assets/images/section/security-image3.avif';
+import securityImage4 from '@/assets/images/section/security-image4.avif';
+import securityImage5 from '@/assets/images/section/security-image5.svg';
+
+const securityCerts = [
+    {
+        id: 'en18031',
+        title: 'EN 18031',
+        subtitle: 'Compliant',
+        description: '符合欧洲安全无线通信标准，确保无线通信的安全性',
+        badgeImage: securityImage5,
+    },
+    {
+        id: 'iso27001',
+        title: 'ISO 27001',
+        subtitle: 'Compliant',
+        description: '采用国际认可的信息安全管理体系，通过严格的安全控制措施，保障用户数据的机密性、完整性与可用性',
+        badgeImage: securityImage1,
+    },
+    {
+        id: 'iso27701',
+        title: 'ISO 27701',
+        subtitle: 'Compliant',
+        description: '遵循国际隐私信息管理标准，建立个人信息全生命周期管理框架，确保个人数据以透明、合规、负责任的方式进行处理',
+        badgeImage: securityImage1,
+    },
+    {
+        id: 'gdpr',
+        title: 'GDPR',
+        subtitle: 'Compliant',
+        description: "严格的隐私保护机制，确保您的数据符合欧洲最严格的数据保护法规要求",
+        badgeImage: securityImage2,
+    },
+    {
+        id: 'soc2',
+        title: 'SOC 2',
+        subtitle: 'Compliant',
+        description: '通过第三方独立审计验证，系统符合行业在安全性方面的标准',
+        badgeImage: securityImage3,
+    },
+    {
+        id: 'hippaa',
+        title: 'HIPPA',
+        subtitle: 'Compliant',
+        description: '达到医疗级安全标准，通过严格的行业合规要求保护医疗和个人信息',
+        badgeImage: securityImage4,
+    }
+];
+
+// Tab 配置数据
+const workSmarterTabs = [
+    {
+        id: 'capture',
+        label: '捕捉',
+        subtitle: '音频输入 | 图片拍摄/上传 | 文本输入 | 一键标记',
+        video: 'https://global.plaud.ai/cdn/shop/videos/c/vp/773473347c4a45959b60ccb8e97065c3/773473347c4a45959b60ccb8e97065c3.HD-720p-1.6Mbps-58423474.mp4?v=0', // 临时占位视频
+    },
+    {
+        id: 'extract',
+        label: '提取',
+        subtitle: '12种语言 | 说话人标签 | 多维总结',
+        video: '//global.plaud.ai/cdn/shop/videos/c/vp/1d9f8635d7124cd780f11dc84ca325ff/1d9f8635d7124cd780f11dc84ca325ff.HD-720p-2.1Mbps-58423031.mp4?v=0', // 临时占位视频
+    },
+    {
+        id: 'utilize',
+        label: '运用',
+        subtitle: 'Ask Plaud | 自动工作流 | 整合，分享和导出',
+        video: '//global.plaud.ai/cdn/shop/videos/c/vp/27a928391db24f93a2b9270a2777e9d8/27a928391db24f93a2b9270a2777e9d8.HD-720p-1.6Mbps-58423030.mp4?v=0', // 临时占位视频
+    },
+];
+
+// 通用视频播放组件 - 优化切换不闪烁
+const VideoPlayer = memo(({ src, isActive = true }: { src: string; isActive?: boolean }) => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [userPaused, setUserPaused] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    // 根据 isActive 控制播放/暂停
+    useEffect(() => {
+        if (videoRef.current) {
+            if (isActive && !userPaused) {
+                videoRef.current.play().catch(() => {});
+                setIsPlaying(true);
+            } else {
+                videoRef.current.pause();
+                setIsPlaying(false);
+            }
+        }
+    }, [isActive, userPaused]);
+
+    const togglePlay = useCallback(() => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+                setUserPaused(true);
+            } else {
+                videoRef.current.play();
+                setUserPaused(false);
+            }
+            setIsPlaying(!isPlaying);
+        }
+    }, [isPlaying]);
+
+    return (
+        <div className="video-container">
+            <video
+                ref={videoRef}
+                src={src}
+                muted
+                loop
+                playsInline
+                preload="auto"
+            />
+            <button 
+                className="play-pause-btn"
+                onClick={togglePlay}
+                aria-label={isPlaying ? '暂停' : '播放'}
+                type="button"
+            >
+                {isPlaying ? (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1"/>
+                        <rect x="8.5" y="7.5" width="2" height="9" rx="0.5" fill="currentColor"/>
+                        <rect x="13.5" y="7.5" width="2" height="9" rx="0.5" fill="currentColor"/>
+                    </svg>
+                ) : (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1"/>
+                        <path d="M10 7.5V16.5L16 12L10 7.5Z" fill="currentColor"/>
+                    </svg>
+                )}
+            </button>
+        </div>
+    );
+});
+
+// 安全认证轮播组件 - 无限循环 + 性能优化
+const SecurityCarousel = memo(({ isMobile = false }: { isMobile?: boolean }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isTransitioning, setIsTransitioning] = useState(true);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const itemsPerView = isMobile ? 2 : 4.5;
+    const totalItems = securityCerts.length;
+    
+    // 使用 useMemo 缓存扩展数组
+    const extendedCerts = useMemo(() => 
+        [...securityCerts, ...securityCerts, ...securityCerts], 
+        []
+    );
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+        const interval = setInterval(() => {
+            setCurrentIndex(prev => prev + 1);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying]);
+
+    // 处理无限循环的边界跳转
+    useEffect(() => {
+        if (currentIndex >= totalItems * 2) {
+            setTimeout(() => {
+                setIsTransitioning(false);
+                setCurrentIndex(totalItems);
+            }, 500);
+            setTimeout(() => {
+                setIsTransitioning(true);
+            }, 550);
+        } else if (currentIndex < totalItems) {
+            setTimeout(() => {
+                setIsTransitioning(false);
+                setCurrentIndex(totalItems + (currentIndex % totalItems));
+            }, 500);
+            setTimeout(() => {
+                setIsTransitioning(true);
+            }, 550);
+        }
+    }, [currentIndex, totalItems]);
+
+    // 初始化到中间位置
+    useEffect(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(totalItems);
+        setTimeout(() => {
+            setIsTransitioning(true);
+        }, 50);
+    }, [totalItems]);
+
+    const handlePrev = useCallback(() => {
+        setIsAutoPlaying(false);
+        setCurrentIndex(prev => prev - 1);
+    }, []);
+
+    const handleNext = useCallback(() => {
+        setIsAutoPlaying(false);
+        setCurrentIndex(prev => prev + 1);
+    }, []);
+
+    const handleMouseEnter = useCallback(() => setIsAutoPlaying(false), []);
+    const handleMouseLeave = useCallback(() => setIsAutoPlaying(true), []);
+
+    const displayIndex = ((currentIndex % totalItems) + totalItems) % totalItems;
+    const progressWidth = ((displayIndex + 1) / totalItems) * 100;
+    const cardWidth = 100 / itemsPerView;
+    const translateX = currentIndex * cardWidth;
+
+    return (
+        <div className="security-carousel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className="carousel-viewport">
+                <div
+                    className="carousel-track"
+                    ref={carouselRef}
+                    style={{
+                        transform: `translateX(-${translateX}%)`,
+                        transition: isTransitioning ? 'transform 0.5s ease' : 'none',
+                    }}
+                >
+                    {extendedCerts.map((cert, index) => (
+                        <div key={`${cert.id}-${index}`} className="cert-card" style={{ flex: `0 0 ${cardWidth}%` }}>
+                            <div className="cert-card-inner">
+                                <div className="cert-icon">
+                                    <img
+                                        src={cert.badgeImage}
+                                        alt={`${cert.title} 认证标识`}
+                                        className="cert-badge-img"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <h4 className="cert-title">{cert.title}</h4>
+                                <p className="cert-subtitle">{cert.subtitle}</p>
+                                <p className="cert-description">{cert.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="carousel-controls">
+                <button className="carousel-arrow carousel-prev" onClick={handlePrev} type="button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
+                <div className="carousel-progress">
+                    <div className="carousel-progress-bar" style={{ width: `${progressWidth}%` }}></div>
+                </div>
+                <button className="carousel-arrow carousel-next" onClick={handleNext} type="button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    );
+});
 
 const Home = () => {
+    const [activeTab, setActiveTab] = useState('capture');
+    const activeTabData = workSmarterTabs.find(tab => tab.id === activeTab);
+
     return (
         <div className="home">
             {/* 顶部横幅 */}
@@ -138,6 +384,55 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className="section-work-smarter section-work-smarter-pc">
+                <div className="section-container">
+                    <h2 className="section-title-center">智能工作，事半功倍</h2>
+                    <p className="section-subtitle">AI 智能参谋，帮助你提升生产力</p>
+
+                    <div className="tabs-container">
+                        <div className="tabs-nav">
+                            {workSmarterTabs.map(tab => (
+                                <div
+                                    key={tab.id}
+                                    className={`tab-item ${activeTab === tab.id ? 'active' : ''}`}
+                                    onMouseEnter={() => setActiveTab(tab.id)}
+                                >
+                                    {tab.label}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="tab-subtitle">
+                            {activeTabData?.subtitle}
+                        </div>
+                    </div>
+
+                    <div className="video-tabs-container">
+                        {workSmarterTabs.map(tab => (
+                            <div 
+                                key={tab.id} 
+                                className={`video-tab-panel ${activeTab === tab.id ? 'active' : ''}`}
+                            >
+                                <VideoPlayer src={tab.video} isActive={activeTab === tab.id} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="section-work-smarter section-work-smarter-mobile">
+                <div className="section-container">
+                    <h2 className="section-title-center">智能工作，事半功倍</h2>
+                    <p className="section-subtitle">AI 智能参谋，帮助你提升生产力</p>
+
+                    {workSmarterTabs.map(tab => (
+                        <div key={tab.id} className={`mobile-video-block mobile-video-block-${tab.id}`}>
+                            <h3 className="mobile-tab-label">{tab.label}</h3>
+                            <p className="mobile-tab-subtitle">{tab.subtitle}</p>
+                            <VideoPlayer src={tab.video} />
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             {/* 第三块：各领域专业人士 */}
             <div className="section-professionals">
@@ -222,6 +517,25 @@ const Home = () => {
                 </div>
             </div>
 
+
+            {/* 安全认证模块 - 桌面端 */}
+            <div className="section-security section-security-pc">
+                <div className="section-container">
+                    <h2 className="section-title-center">企业级安全防护</h2>
+                    <p className="section-subtitle">你的隐私，是我们的首要任务</p>
+                    <SecurityCarousel isMobile={false} />
+                   
+                </div>
+            </div>
+
+            {/* 安全认证模块 - 移动端 */}
+            <div className="section-security section-security-mobile">
+                <div className="section-container">
+                    <h2 className="section-title-center">企业级安全防护</h2>
+                    <p className="section-subtitle">你的隐私，是我们的首要任务</p>
+                    <SecurityCarousel isMobile={true} />
+                </div>
+            </div>
 
             {/* 第六块：关注我们 */}
             <div className="section-follow-us">
