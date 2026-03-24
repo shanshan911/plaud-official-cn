@@ -710,6 +710,26 @@ const Home = () => {
                         </a>
                     </p>
                 </div>
+                <div className="footer-banner-left">
+                    <p>地址：深圳市南山区南山街道登良社区东滨路与南光路交汇处永新时代广场2号楼20层2001 邮编 518000</p>
+                    <p>
+                    电话：0755-86706325
+                    </p>
+                    <div>
+                        <a
+                            href="https://beian.mps.gov.cn/#/query/webSearch?code=44030002011219"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <img
+                                src="https://www.beian.gov.cn/img/ghs.png"
+                                alt="粤公网安备44030002011219号"
+                                style={{ verticalAlign: 'middle', marginRight: 6, height: 16, marginBottom:3 }}
+                            />
+                            粤公网安备44030002011219号
+                        </a>
+                     </div>
+                </div>
                 <div className="footer-banner-right">
                     <p>反馈给 Plaud：<a href="mailto:support@plaud.cn">Support@plaud.cn</a></p>
                     <p>
