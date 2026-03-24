@@ -36,64 +36,75 @@ import serviceQrCode from '@/assets/images/home/service-account.png';
 import videoQrCode from '@/assets/images/home/video-account.png';
 import androidQrCode from '@/assets/images/home/android.png';
 import iosQrCode from '@/assets/images/home/ios.png';
+import securityImage1 from '@/assets/images/section/security-image1.avif';
+import securityImage2 from '@/assets/images/section/security-image2.avif';
+import securityImage3 from '@/assets/images/section/security-image3.avif';
+import securityImage4 from '@/assets/images/section/security-image4.avif';
+import securityImage5 from '@/assets/images/section/security-image5.svg';
 
-// 安全认证数据
 const securityCerts = [
     {
         id: 'en18031',
         title: 'EN 18031',
         subtitle: 'Compliant',
-        description: 'Meets European cybersecurity standards for secure wireless communication.',
-        icon: 'en18031',
+        description: '符合欧洲安全无线通信标准，确保无线通信的安全性',
+        badgeImage: securityImage5,
     },
     {
         id: 'iso27001',
         title: 'ISO 27001',
         subtitle: 'Compliant',
-        description: 'Recognized worldwide for information security. Protects your data through rigorous controls that maintain confidentiality, integrity, and availability.',
-        icon: 'iso27001',
+        description: '采用国际认可的信息安全管理体系，通过严格的安全控制措施，保障用户数据的机密性、完整性与可用性',
+        badgeImage: securityImage1,
     },
     {
         id: 'iso27701',
         title: 'ISO 27701',
         subtitle: 'Compliant',
-        description: 'Global privacy management standard. Ensures personal data is handled responsibly, transparently, and in alignment with GDPR.',
-        icon: 'iso27701',
+        description: '遵循国际隐私信息管理标准，建立个人信息全生命周期管理框架，确保个人数据以透明、合规、负责任的方式进行处理',
+        badgeImage: securityImage1,
     },
     {
         id: 'gdpr',
         title: 'GDPR',
         subtitle: 'Compliant',
-        description: "Rigorous privacy protections that keep your data in line with Europe's strictest regulations.",
-        icon: 'gdpr',
+        description: "严格的隐私保护机制，确保您的数据符合欧洲最严格的数据保护法规要求",
+        badgeImage: securityImage2,
     },
     {
         id: 'soc2',
         title: 'SOC 2',
         subtitle: 'Compliant',
-        description: 'Independently verified controls that meet industry standards for security, availability, and confidentiality.',
-        icon: 'soc2',
+        description: '通过第三方独立审计验证，系统符合行业在安全性方面的标准',
+        badgeImage: securityImage3,
     },
+    {
+        id: 'hippaa',
+        title: 'HIPPA',
+        subtitle: 'Compliant',
+        description: '达到医疗级安全标准，通过严格的行业合规要求保护医疗和个人信息',
+        badgeImage: securityImage4,
+    }
 ];
 
 // Tab 配置数据
 const workSmarterTabs = [
     {
         id: 'capture',
-        label: 'Capture',
-        subtitle: 'Audio | Highlights | Text | Images',
+        label: '捕捉',
+        subtitle: '音频输入 | 图片拍摄/上传 | 文本输入 | 一键标记',
         video: 'https://global.plaud.ai/cdn/shop/videos/c/vp/773473347c4a45959b60ccb8e97065c3/773473347c4a45959b60ccb8e97065c3.HD-720p-1.6Mbps-58423474.mp4?v=0', // 临时占位视频
     },
     {
         id: 'extract',
-        label: 'Extract',
-        subtitle: 'Transcription | Summary | Mind Map',
+        label: '提取',
+        subtitle: '12种语言 | 说话人标签 | 多维总结',
         video: '//global.plaud.ai/cdn/shop/videos/c/vp/1d9f8635d7124cd780f11dc84ca325ff/1d9f8635d7124cd780f11dc84ca325ff.HD-720p-2.1Mbps-58423031.mp4?v=0', // 临时占位视频
     },
     {
         id: 'utilize',
-        label: 'Utilize',
-        subtitle: 'Ask Plaud | AutoFlow | Integrate, Share & Export',
+        label: '运用',
+        subtitle: 'Ask Plaud | 自动工作流 | 整合，分享和导出',
         video: '//global.plaud.ai/cdn/shop/videos/c/vp/27a928391db24f93a2b9270a2777e9d8/27a928391db24f93a2b9270a2777e9d8.HD-720p-1.6Mbps-58423030.mp4?v=0', // 临时占位视频
     },
 ];
@@ -161,71 +172,6 @@ const VideoPlayer = memo(({ src, isActive = true }: { src: string; isActive?: bo
             </button>
         </div>
     );
-});
-
-// 认证徽章图标组件 - memo 优化
-const CertIcon = memo(({ type }: { type: string }) => {
-    switch (type) {
-        case 'en18031':
-            return (
-                <div className="cert-icon cert-icon-en18031">
-                    <svg viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="36" fill="#E8F5E9" stroke="#4CAF50" strokeWidth="2"/>
-                        <text x="40" y="36" textAnchor="middle" fill="#2E7D32" fontSize="10" fontWeight="bold">EN</text>
-                        <text x="40" y="50" textAnchor="middle" fill="#2E7D32" fontSize="12" fontWeight="bold">18031</text>
-                    </svg>
-                </div>
-            );
-        case 'iso27001':
-            return (
-                <div className="cert-icon cert-icon-iso">
-                    <div className="sensiba-badge">Sensiba</div>
-                    <svg viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="36" fill="#E3F2FD" stroke="#1976D2" strokeWidth="2"/>
-                        <text x="40" y="30" textAnchor="middle" fill="#1565C0" fontSize="8">ISO/IEC 27001</text>
-                        <text x="40" y="42" textAnchor="middle" fill="#1565C0" fontSize="7">Certified</text>
-                        <path d="M32 52 L40 58 L48 52 L48 46 L40 40 L32 46 Z" fill="#1976D2"/>
-                    </svg>
-                </div>
-            );
-        case 'iso27701':
-            return (
-                <div className="cert-icon cert-icon-iso">
-                    <div className="sensiba-badge">Sensiba</div>
-                    <svg viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="36" fill="#FFF3E0" stroke="#FF9800" strokeWidth="2"/>
-                        <text x="40" y="30" textAnchor="middle" fill="#E65100" fontSize="8">ISO/IEC 27701</text>
-                        <text x="40" y="42" textAnchor="middle" fill="#E65100" fontSize="7">Certified</text>
-                        <path d="M32 52 L40 58 L48 52 L48 46 L40 40 L32 46 Z" fill="#FF9800"/>
-                    </svg>
-                </div>
-            );
-        case 'gdpr':
-            return (
-                <div className="cert-icon cert-icon-gdpr">
-                    <svg viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="36" fill="#1A237E"/>
-                        <circle cx="40" cy="40" r="28" fill="#283593"/>
-                        <text x="40" y="44" textAnchor="middle" fill="#FFC107" fontSize="14" fontWeight="bold">GDPR</text>
-                        {[...Array(12)].map((_, i) => (
-                            <circle key={i} cx={40 + 32 * Math.cos((i * 30 - 90) * Math.PI / 180)} cy={40 + 32 * Math.sin((i * 30 - 90) * Math.PI / 180)} r="2" fill="#FFC107"/>
-                        ))}
-                    </svg>
-                </div>
-            );
-        case 'soc2':
-            return (
-                <div className="cert-icon cert-icon-soc">
-                    <svg viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="36" fill="#E3F2FD" stroke="#64B5F6" strokeWidth="2"/>
-                        <text x="40" y="38" textAnchor="middle" fill="#1565C0" fontSize="16" fontWeight="bold">SOC</text>
-                        <text x="40" y="54" textAnchor="middle" fill="#1565C0" fontSize="14" fontWeight="bold">2</text>
-                    </svg>
-                </div>
-            );
-        default:
-            return null;
-    }
 });
 
 // 安全认证轮播组件 - 无限循环 + 性能优化
@@ -302,18 +248,25 @@ const SecurityCarousel = memo(({ isMobile = false }: { isMobile?: boolean }) => 
     return (
         <div className="security-carousel" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div className="carousel-viewport">
-                <div 
-                    className="carousel-track" 
+                <div
+                    className="carousel-track"
                     ref={carouselRef}
-                    style={{ 
+                    style={{
                         transform: `translateX(-${translateX}%)`,
-                        transition: isTransitioning ? 'transform 0.5s ease' : 'none'
+                        transition: isTransitioning ? 'transform 0.5s ease' : 'none',
                     }}
                 >
                     {extendedCerts.map((cert, index) => (
                         <div key={`${cert.id}-${index}`} className="cert-card" style={{ flex: `0 0 ${cardWidth}%` }}>
                             <div className="cert-card-inner">
-                                <CertIcon type={cert.icon} />
+                                <div className="cert-icon">
+                                    <img
+                                        src={cert.badgeImage}
+                                        alt={`${cert.title} 认证标识`}
+                                        className="cert-badge-img"
+                                        loading="lazy"
+                                    />
+                                </div>
                                 <h4 className="cert-title">{cert.title}</h4>
                                 <p className="cert-subtitle">{cert.subtitle}</p>
                                 <p className="cert-description">{cert.description}</p>
@@ -431,6 +384,55 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className="section-work-smarter section-work-smarter-pc">
+                <div className="section-container">
+                    <h2 className="section-title-center">智能工作，事半功倍</h2>
+                    <p className="section-subtitle">AI 智能参谋，帮助你提升生产力</p>
+
+                    <div className="tabs-container">
+                        <div className="tabs-nav">
+                            {workSmarterTabs.map(tab => (
+                                <div
+                                    key={tab.id}
+                                    className={`tab-item ${activeTab === tab.id ? 'active' : ''}`}
+                                    onMouseEnter={() => setActiveTab(tab.id)}
+                                >
+                                    {tab.label}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="tab-subtitle">
+                            {activeTabData?.subtitle}
+                        </div>
+                    </div>
+
+                    <div className="video-tabs-container">
+                        {workSmarterTabs.map(tab => (
+                            <div 
+                                key={tab.id} 
+                                className={`video-tab-panel ${activeTab === tab.id ? 'active' : ''}`}
+                            >
+                                <VideoPlayer src={tab.video} isActive={activeTab === tab.id} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="section-work-smarter section-work-smarter-mobile">
+                <div className="section-container">
+                    <h2 className="section-title-center">智能工作，事半功倍</h2>
+                    <p className="section-subtitle">AI 智能参谋，帮助你提升生产力</p>
+
+                    {workSmarterTabs.map(tab => (
+                        <div key={tab.id} className={`mobile-video-block mobile-video-block-${tab.id}`}>
+                            <h3 className="mobile-tab-label">{tab.label}</h3>
+                            <p className="mobile-tab-subtitle">{tab.subtitle}</p>
+                            <VideoPlayer src={tab.video} />
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             {/* 第三块：各领域专业人士 */}
             <div className="section-professionals">
@@ -515,73 +517,23 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="section-work-smarter section-work-smarter-pc">
-                <div className="section-container">
-                    <h2 className="section-title-center">Work smarter, not harder</h2>
-                    <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
-                    
-                    <div className="tabs-container">
-                        <div className="tabs-nav">
-                            {workSmarterTabs.map(tab => (
-                                <div
-                                    key={tab.id}
-                                    className={`tab-item ${activeTab === tab.id ? 'active' : ''}`}
-                                    onMouseEnter={() => setActiveTab(tab.id)}
-                                >
-                                    {tab.label}
-                                </div>
-                            ))}
-                        </div>
-                        <div className="tab-subtitle">
-                            {activeTabData?.subtitle}
-                        </div>
-                    </div>
-
-                    <div className="video-tabs-container">
-                        {workSmarterTabs.map(tab => (
-                            <div 
-                                key={tab.id} 
-                                className={`video-tab-panel ${activeTab === tab.id ? 'active' : ''}`}
-                            >
-                                <VideoPlayer src={tab.video} isActive={activeTab === tab.id} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="section-work-smarter section-work-smarter-mobile">
-                <div className="section-container">
-                    <h2 className="section-title-center">Work smarter, not harder</h2>
-                    <p className="section-subtitle">Personalized AI note-taking enhances your productivity</p>
-                    
-                    {workSmarterTabs.map(tab => (
-                        <div key={tab.id} className={`mobile-video-block mobile-video-block-${tab.id}`}>
-                            <h3 className="mobile-tab-label">{tab.label}</h3>
-                            <p className="mobile-tab-subtitle">{tab.subtitle}</p>
-                            <VideoPlayer src={tab.video} />
-                        </div>
-                    ))}
-                </div>
-            </div>
 
             {/* 安全认证模块 - 桌面端 */}
             <div className="section-security section-security-pc">
                 <div className="section-container">
-                    <h2 className="section-title-center">Enterprise-grade security</h2>
-                    <p className="section-subtitle">Built with privacy at the core</p>
+                    <h2 className="section-title-center">企业级安全防护</h2>
+                    <p className="section-subtitle">你的隐私，是我们的首要任务</p>
                     <SecurityCarousel isMobile={false} />
-                    <a href="https://plaud.ai/security" target="_blank" className="learn-more-btn">Learn More</a>
+                   
                 </div>
             </div>
 
             {/* 安全认证模块 - 移动端 */}
             <div className="section-security section-security-mobile">
                 <div className="section-container">
-                    <h2 className="section-title-center">Enterprise-grade security</h2>
-                    <p className="section-subtitle">Built with privacy at the core</p>
+                    <h2 className="section-title-center">企业级安全防护</h2>
+                    <p className="section-subtitle">你的隐私，是我们的首要任务</p>
                     <SecurityCarousel isMobile={true} />
-                    <a href="https://plaud.ai/security" target="_blank" className="learn-more-btn">Learn More</a>
                 </div>
             </div>
 
