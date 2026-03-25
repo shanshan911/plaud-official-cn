@@ -18,10 +18,6 @@ import professionalLawyer from '@/assets/images/home/professional-lawyer.png';
 import professionalEducator from '@/assets/images/home/professional-educator.png';
 import professionalCreator from '@/assets/images/home/professional-creator.png';
 
-import productNotePro from '@/assets/images/home/product-note-pro.png';
-import productNote from '@/assets/images/home/product-note.png';
-import productNotePinS from '@/assets/images/home/product-notepin-s.png';
-
 import plaudIntelligence1 from '@/assets/images/home/plaud-intelligence-1.png';
 import plaudIntelligence2 from '@/assets/images/home/plaud-intelligence-2.png';
 import plaudIntelligence3 from '@/assets/images/home/plaud-intelligence-3.png';
@@ -36,6 +32,10 @@ import serviceQrCode from '@/assets/images/home/service-account.png';
 import videoQrCode from '@/assets/images/home/video-account.png';
 import androidQrCode from '@/assets/images/home/android.png';
 import iosQrCode from '@/assets/images/home/ios.png';
+import imgSectionNotePro from '@/assets/images/section/notepro.png';
+import imgSectionNote from '@/assets/images/section/note.png';
+import imgSectionNotePinS from '@/assets/images/section/notpins.png';
+
 import securityImage1 from '@/assets/images/section/security-image1.avif';
 import securityImage2 from '@/assets/images/section/security-image2.avif';
 import securityImage3 from '@/assets/images/section/security-image3.avif';
@@ -474,29 +474,56 @@ const Home = () => {
 
 
                     <div className="product-cards">
-                        <div className='card-item'>
-                           <img src={productNotePro} alt="Plaud Note Pro" />
-                           <div className="button_cart">
-                              <a className="button_back" href="https://detail.tmall.com/item.htm?id=964623891296" target='_blank'>
-                                立即购买
-                              </a>
-                           </div>
+                        <div className="product-card">
+                            <div className="product-card__image-wrap">
+                                <img src={imgSectionNotePro} alt="Plaud Note Pro" loading="lazy" />
+                            </div>
+                            <div className="product-card__body">
+                                <h3 className="product-card__title">Plaud Note Pro</h3>
+                                <p className="product-card__subtitle">让对话即为生产力</p>
+                                <a
+                                    className="product-card__btn"
+                                    href="https://detail.tmall.com/item.htm?id=964623891296"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
-                         <div className='card-item'>
-                           <img src={productNote} alt="Plaud Note" />
-                           <div className="button_cart">
-                              <a className="button_back" href="https://detail.tmall.com/item.htm?id=963977914722" target='_blank'>
-                                立即购买
-                              </a>
-                           </div>
+                        <div className="product-card">
+                            <div className="product-card__image-wrap">
+                                <img src={imgSectionNote} alt="Plaud Note" loading="lazy" />
+                            </div>
+                            <div className="product-card__body">
+                                <h3 className="product-card__title">Plaud Note</h3>
+                                <p className="product-card__subtitle">全球畅销的AI工作伙伴</p>
+                                <a
+                                    className="product-card__btn"
+                                    href="https://detail.tmall.com/item.htm?id=963977914722"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
-                         <div className='card-item'>
-                            <img src={productNotePinS} alt="Plaud NotePin S" />
-                           <div className="button_cart">
-                              <a className="button_back" href="https://detail.tmall.com/item.htm?id=965213262371" target='_blank'>
-                                立即购买
-                              </a>
-                           </div>
+                        <div className="product-card">
+                            <div className="product-card__image-wrap">
+                                <img src={imgSectionNotePinS} alt="Plaud NotePin S" loading="lazy" />
+                            </div>
+                            <div className="product-card__body">
+                                <h3 className="product-card__title">Plaud NotePin S</h3>
+                                <p className="product-card__subtitle">解放双手 随时随地随心记</p>
+                                <a
+                                    className="product-card__btn"
+                                    href="https://detail.tmall.com/item.htm?id=965213262371"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    立即购买
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -654,7 +681,7 @@ const Home = () => {
             <div className="footer-banner">
               
                 <div className="footer-banner-left">
-                    <p>Copyright@2025 深圳机智连接科技有限公司</p>
+                    <p>Copyright© 2025-2026 深圳机智连接科技有限公司 版权所有</p>
                     <div>生成式人工智能服务登记号：Guangdong-Plaud-20251229S0027</div>
                     <p>
                         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
