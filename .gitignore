@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-dist*   
+dist*
 deploy_www_cn.sh
+package-lock.json

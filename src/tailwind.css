@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'PingFang SC', 'Microsoft YaHei', 'HarmonyOS Sans SC', ui-sans-serif, system-ui, sans-serif;
+  --font-jokker: 'Jokker', var(--font-sans);
+
+  /** 全站页面背景（与背书条等模块一致） */
+  --color-page-canvas: #f2efeb;
+
+  /** 背书条无缝横向滚动（轨道双份 + translate -50%） */
+  --animate-endorsement-marquee: endorsement-marquee 55s linear infinite;
+}
+
+@keyframes endorsement-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

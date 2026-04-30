@@ -7,9 +7,25 @@
     font-display: swap;
 }
 
+:root {
+    --font-jokker: 'Jokker', ui-sans-serif, system-ui, sans-serif;
+    /** 与 tailwind @theme --color-page-canvas 一致 */
+    --color-page-canvas: #f2efeb;
+}
+
+html {
+    background-color: var(--color-page-canvas);
+}
+
 body {
-    margin: 0;   
+    margin: 0;
     font-family: "Jokker", sans-serif;
+    background-color: var(--color-page-canvas);
+}
+
+#root {
+    min-height: 100vh;
+    background-color: var(--color-page-canvas);
 }
 
 * {
