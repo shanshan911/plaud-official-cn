@@ -435,12 +435,12 @@ const Home = () => {
             </div>
 
             {/* 第三块：各领域专业人士 */}
-            <div className="section-professionals">
+            <div className="section-professionals" >
                 <div className="section-container">
                     <h2 className="section-title-center">各领域专业人士值得信赖的AI工作伙伴<br />提升生产力和价值创造</h2>
                     <div className="image-grid-6">
                         <div className="grid-item">
-                            <img src={professionalExecutive} alt="高管" />
+                            <img src={professionalExecutive} alt="高管1" />
                             <span className="grid-label">高管</span>
                         </div>
                         <div className="grid-item">
