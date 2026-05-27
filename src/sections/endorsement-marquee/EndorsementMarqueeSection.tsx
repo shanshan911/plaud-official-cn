@@ -176,7 +176,7 @@ function EndorsementHeading() {
         data-figma-node="208:15507"
       >
         <span className="font-light lg:font-[family-name:var(--font-sans)] lg:font-light">全球超</span>
-        <span className="font-light lg:font-[family-name:var(--font-jokker)] lg:font-normal">{` 150`}</span>
+        <span className="font-light lg:font-[family-name:var(--font-jokker)] lg:font-normal">{` 200`}</span>
         <span className="font-light lg:font-[family-name:var(--font-sans)] lg:font-light">{` 万专业用户的信赖`}</span>
       </h2>
     </div>
