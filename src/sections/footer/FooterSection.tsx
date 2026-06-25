@@ -439,9 +439,10 @@ export function FooterSection() {
               className="pt-2 font-[family-name:var(--font-jokker)] text-[14px] leading-[1.5] text-black"
               data-node-id="208:17796"
             >
-              <p className="mb-0">Copyright@2025 深圳机智连接科技有限公司</p>
+              <p className="mb-0">Copyright@2021-2026 深圳机智连接科技有限公司</p>
               <p className="mb-0">生成式人工智能服务登记号：Guangdong-Plaud-20251229S0027</p>
-              <p className="mb-0">粤ICP备2025405986号</p>
+              <p className="mb-0">ICP备案号：粤ICP备2025405986号</p>
+              <p className="mb-0">ICP许可证：粤B2-20262239</p>
             </div>
           </div>
 
