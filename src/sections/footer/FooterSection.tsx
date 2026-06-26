@@ -441,8 +441,42 @@ export function FooterSection() {
             >
               <p className="mb-0">Copyright@2021-2026 深圳机智连接科技有限公司</p>
               <p className="mb-0">生成式人工智能服务登记号：Guangdong-Plaud-20251229S0027</p>
-              <p className="mb-0">ICP备案号：粤ICP备2025405986号</p>
-              <p className="mb-0">ICP许可证：粤B2-20262239</p>
+              <p className="mb-0">
+                ICP备案号：
+                <a
+                  href="https://beian.miit.gov.cn/#/Integrated/index"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-2 hover:underline"
+                >
+                  粤ICP备2025405986号
+                </a>
+              </p>
+              <p className="mb-0">
+                ICP许可证：
+                <a
+                  href="https://tsm.miit.gov.cn/dxxzsp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-2 hover:underline"
+                >
+                  粤B2-20262239
+                </a>
+              </p>
+              <p className="mb-0 flex items-center">
+                <img src="https://cdn.shopify.com/s/files/1/0959/9542/9162/files/ico_gongan.png?v=1782467110" alt="" className="inline-block" />
+               <span className="ml-[5px]">
+                  公安备案：
+                  <a
+                    href="https://beian.mps.gov.cn/#/query/webSearch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-2 hover:underline"
+                  >
+                  粤公网安备44030002011219号
+                  </a>
+                </span>
+              </p>
             </div>
           </div>
 
@@ -579,28 +613,46 @@ export function FooterSection() {
             className="space-y-0 font-[family-name:var(--font-jokker)] text-sm leading-[1.5] text-black lg:text-xs"
             data-node-id="208:15401"
           >
-            <p className="mb-0">
-              <span>Copyright@2025 </span>
-              <span className="font-[family-name:var(--font-sans)] font-light">深圳机智连接科技有限公司</span>
-            </p>
-            <p className="mb-0 mt-0">
-              <span className="font-[family-name:var(--font-sans)] font-light">生成式人工智能服务登记号：</span>
-              <span>Guangdong-Plaud-20251229S0027</span>
-            </p>
-            <p className="mb-0 mt-0">
-              <a
-                href="https://beian.miit.gov.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex flex-wrap items-center gap-0 underline-offset-2 hover:underline"
-              >
-                <span className="font-[family-name:var(--font-sans)] font-light">粤</span>
-                <span>ICP</span>
-                <span className="font-[family-name:var(--font-sans)] font-light">备</span>
-                <span>2025405986</span>
-                <span className="font-[family-name:var(--font-sans)] font-light">号</span>
-              </a>
-            </p>
+              <p className="mb-0">Copyright@2021-2026 深圳机智连接科技有限公司</p>
+              <p className="mb-0">生成式人工智能服务登记号：Guangdong-Plaud-20251229S0027</p>
+              <p className="mb-0">
+                ICP备案号：
+                <a
+                  href="https://beian.miit.gov.cn/#/Integrated/index"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-2 hover:underline"
+                >
+                  粤ICP备2025405986号
+                </a>
+              </p>
+              <p className="mb-0">
+                ICP许可证：
+                <a
+                  href="https://tsm.miit.gov.cn/dxxzsp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-2 hover:underline"
+                >
+                  粤B2-20262239
+                </a>
+              </p>
+              <p className="mb-0 flex items-center">
+                <img src="https://cdn.shopify.com/s/files/1/0959/9542/9162/files/ico_gongan.png?v=1782467110" alt="" className="inline-block" />
+              
+                <span className="ml-[5px]">
+                  公安备案：
+                  <a
+                    href="https://beian.mps.gov.cn/#/query/webSearch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-2 hover:underline"
+                  >
+                 粤公网安备44030002011219号
+                  </a>
+                </span>
+              </p>
+
           </div>
           <div
             className="flex flex-wrap items-center gap-0 font-[family-name:var(--font-sans)] text-xs font-light leading-normal text-black lg:justify-end lg:pb-px"
