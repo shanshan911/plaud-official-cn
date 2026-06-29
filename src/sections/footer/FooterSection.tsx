@@ -466,7 +466,6 @@ export function FooterSection() {
               <p className="mb-0 flex items-center">
                 <img src="https://cdn.shopify.com/s/files/1/0959/9542/9162/files/ico_gongan.png?v=1782467110" alt="" className="inline-block" />
                <span className="ml-[5px]">
-                  公安备案：
                   <a
                     href="https://beian.mps.gov.cn/#/query/webSearch"
                     target="_blank"
@@ -641,7 +640,6 @@ export function FooterSection() {
                 <img src="https://cdn.shopify.com/s/files/1/0959/9542/9162/files/ico_gongan.png?v=1782467110" alt="" className="inline-block" />
               
                 <span className="ml-[5px]">
-                  公安备案：
                   <a
                     href="https://beian.mps.gov.cn/#/query/webSearch"
                     target="_blank"
