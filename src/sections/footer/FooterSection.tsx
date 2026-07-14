@@ -86,7 +86,7 @@ const LEGAL_PAGES = {
   },
   privacy: {
     title: '隐私政策',
-    url: 'https://app.plaud.cn/terms-service/privacy-cn.html',
+    url: 'https://www.plaud.cn/privacy-policy',
   },
 } as const;
 

@@ -11,6 +11,7 @@ export interface RouteConfig {
 // Dynamic import page components
 const Home = lazy(() => import('../pages/Home/index'));
 const ProductIntroduction = lazy(() => import('../pages/ProductIntroduction/index'));
+const PrivacyPolicy = lazy(() => import('../pages/PrivacyPolicy/index'));
 
 export const routes: RouteConfig[] = [
   {
@@ -21,6 +22,10 @@ export const routes: RouteConfig[] = [
   {
     path: '/product-introduction',
     element: ProductIntroduction,
+  },
+  {
+    path: '/privacy-policy',
+    element: PrivacyPolicy,
   },
 ];
 

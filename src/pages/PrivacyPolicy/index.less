@@ -1,0 +1,102 @@
+/** 按 Notion 文档排版：白底居中窄栏、正文 16/1.8，标题加粗分级 */
+.privacy-policy-page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.privacy-policy {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+    color: #1f1f1f;
+    font-family: var(--font-sans, 'PingFang SC', 'Microsoft YaHei', sans-serif);
+    font-size: 16px;
+    line-height: 1.8;
+
+    h1 {
+        margin: 0 0 24px;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .policy-date {
+        margin: 0;
+        line-height: 1.9;
+    }
+
+    .policy-date + h2 {
+        margin-top: 48px;
+    }
+
+    h2 {
+        margin: 40px 0 16px;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    h3 {
+        margin: 28px 0 12px;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    p {
+        margin: 0 0 14px;
+    }
+
+    /** Tailwind preflight 会重置 list-style，这里还原 Notion 的圆点/数字序号 */
+    ul,
+    ol {
+        margin: 0 0 14px;
+        padding-left: 1.6em;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li {
+        margin-bottom: 8px;
+
+        p {
+            margin-top: 8px;
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        word-break: break-all;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .privacy-policy {
+        padding: 40px 20px 64px;
+        font-size: 15px;
+
+        h1 {
+            font-size: 26px;
+        }
+
+        h2 {
+            font-size: 19px;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+    }
+}
