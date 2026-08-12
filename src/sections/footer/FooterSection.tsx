@@ -162,7 +162,7 @@ function BrandAndSns({ variant }: { variant: 'mobile' | 'desktop' }) {
 function ContactLinks({ onSelect }: { onSelect: (id: CooperationModalId) => void }) {
   return (
     <div className="min-w-0 shrink-0" data-node-id="208:15398">
-      <h3 className="mt-0 font-[family-name:var(--font-sans)] text-sm font-bold leading-none text-black">联系我们</h3>
+      <h3 className="mb-3 mt-0 font-[family-name:var(--font-sans)] text-sm font-bold leading-none text-black">联系我们</h3>
       <ul className="mt-0 space-y-0 leading-[1.8]">
         {COOPERATION_ENTRIES.map((row) => (
           <li key={row.id}>
