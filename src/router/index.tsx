@@ -1,6 +1,28 @@
-import React, { Suspense } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { createBrowserRouter, RouterProvider, useLocation } from 'react-router-dom';
 import routes, { type RouteConfig } from './routes';
+
+const CANONICAL_ORIGIN = 'https://www.plaud.cn';
+
+const CanonicalLink: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    let canonicalLink = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      document.head.appendChild(canonicalLink);
+    }
+
+    const canonicalUrl = new URL(CANONICAL_ORIGIN);
+    canonicalUrl.pathname = pathname;
+    canonicalLink.href = canonicalUrl.toString();
+  }, [pathname]);
+
+  return null;
+};
 
 // Loading component
 const PageLoading: React.FC = () => (
@@ -14,9 +36,12 @@ const transformRoutes = (routeConfigs: RouteConfig[]) => {
     path: route.path,
     index: route.index,
     element: (
-      <Suspense fallback={<PageLoading />}>
-        <route.element />
-      </Suspense>
+      <>
+        <CanonicalLink />
+        <Suspense fallback={<PageLoading />}>
+          <route.element />
+        </Suspense>
+      </>
     ),
   }));
 };
