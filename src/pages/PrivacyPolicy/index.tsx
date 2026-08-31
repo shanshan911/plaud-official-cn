@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
                 <p>本政策就 PLAUD 品牌相关业务中的个人信息处理事项分别进行说明，具体如下：</p>
                 <ul>
                     <li>
-                        访问 Plaud 官方网站（plaud.cn）的访客：个人信息处理者为<strong>深圳机智连接科技有限公司</strong>
+                        访问 Plaud 官方网站（plaud.cn、plaud-ai.cn）的访客：个人信息处理者为<strong>深圳机智连接科技有限公司</strong>
                     </li>
                     <li>
                         在官方销售渠道购买产品的消费者、通过客服渠道联系我们的消费者、参与营销活动的用户：个人信息处理者为
